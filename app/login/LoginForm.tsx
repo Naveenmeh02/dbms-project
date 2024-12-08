@@ -182,7 +182,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
-import GoogleSignin from "./GoogleSignin";
+
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -281,7 +281,7 @@ export default function LoginForm() {
                   "Login"
                 )}
               </Button>
-              <GoogleSignin />
+              
             </form>
           </Form>
         </CardContent>
