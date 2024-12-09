@@ -6,6 +6,7 @@ import { DataTable } from "../../components/ui/data-table";
 import LogoutButton from "./LogoutButton";
 import { createClient } from "@/utils/supabase/client";
 
+
 function Dashboard() {
   const [data, setData] = useState<Employee[]>([]);
   const [loading, setLoading] = useState(true);
