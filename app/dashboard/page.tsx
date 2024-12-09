@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { Employee, columns } from "./columns";
-import { DataTable } from "./data-table";
+import { DataTable } from "../../components/ui/data-table";
 import LogoutButton from "./LogoutButton";
 import { createClient } from "@/utils/supabase/client";
-
 
 function Dashboard() {
   const [data, setData] = useState<Employee[]>([]);
@@ -26,22 +25,24 @@ function Dashboard() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>; // Show a loading state while data is being fetched
+    return <p className="text-gray-300">Loading...</p>; // Adjusted for dark mode
   }
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10 dark:bg-gray-900 dark:text-gray-100 bg-white text-black">
       {/* Heading Section */}
       <div className="mb-6 text-center">
         <h1 className="text-3xl font-bold">Employee Management System</h1>
-        <p className="text-gray-600">Manage your employees with ease and efficiency.</p>
+        <p className="text-gray-500 dark:text-gray-400">
+          Manage your employees with ease and efficiency.
+        </p>
       </div>
       {/* Logout and Add Employee Buttons */}
       <div className="flex justify-between items-center mb-4">
         <LogoutButton />
       </div>
       {/* Data Table */}
-      <DataTable columns={columns} data={data} />
+      <DataTable  columns={columns} data={data} />
     </div>
   );
 }
